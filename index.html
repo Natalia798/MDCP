@@ -1,34 +1,22 @@
-<script type = "text/javascript">
+<head>   
+      <script type = "text/javascript">
          <!--
-            function setName() {
-               if( document.myform.customer.value == "" ) {
-                  alert("Enter some value!");
-                  return;
-               }
-               cookievalue = escape(document.myform.customer.value) + ";";
+            function WriteCookie() {
+               var now = new Date();
+               now.setMonth( now.getMonth() + 1 );
+               cookievalue = escape(document.myform.customer.value) + ";"
+               
                document.cookie = "name=" + cookievalue;
-               document.write ("Nume student" : cookievalue );
-            }
-         function setBrowser() {
-               if( document.myform2.customer2.value == "" ) {
-                  alert("Enter some value!");
-                  return;
-               }
-               cookievalue = escape(document.myform2.customer2.value) + ";";
-               document.cookie = "name=" + cookievalue;
-               document.write ("Browserr" : cookievalue );
+               document.cookie = "expires=" + now.toUTCString() + ";"
+               document.write ("Setting Cookies : " + "name=" + cookievalue );
             }
          //-->
       </script>      
    </head>
    
-   <body>      
+   <body>
       <form name = "myform" action = "">
          Enter name: <input type = "text" name = "customer"/>
-         <input type = "button" value = "Set Name" onclick = "setName();"/>
-      </form>  
-           <form name = "myform2" action = "">
-         Enter browser: <input type = "text" name = "customer2"/>
-         <input type = "button" value = "Set Browser" onclick = "setBrowser();"/>
-      </form>  
+         <input type = "button" value = "Set Cookie" onclick = "WriteCookie()"/>
+      </form>      
    </body>
