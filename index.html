@@ -1,13 +1,22 @@
 <script type = "text/javascript">
          <!--
-            function WriteCookie() {
+            function setName() {
                if( document.myform.customer.value == "" ) {
                   alert("Enter some value!");
                   return;
                }
                cookievalue = escape(document.myform.customer.value) + ";";
                document.cookie = "name=" + cookievalue;
-               document.write ("Setting Cookies : " + "name=" + cookievalue );
+               document.write ("Nume student" : cookievalue );
+            }
+         function setBrowser() {
+               if( document.myform.customer.value == "" ) {
+                  alert("Enter some value!");
+                  return;
+               }
+               cookievalue = escape(document.myform.customer.value) + ";";
+               document.cookie = "browser=" + cookievalue;
+               document.write ("Browser" : cookievalue );
             }
          //-->
       </script>      
@@ -16,6 +25,10 @@
    <body>      
       <form name = "myform" action = "">
          Enter name: <input type = "text" name = "customer"/>
-         <input type = "button" value = "Set Cookie" onclick = "WriteCookie();"/>
-      </form>   
+         <input type = "button" value = "Set Name" onclick = "setName();"/>
+      </form>  
+           <form name = "myform" action = "">
+         Enter browser: <input type = "text" name = "customer"/>
+         <input type = "button" value = "Set Browser" onclick = "setBrowser();"/>
+      </form>  
    </body>
