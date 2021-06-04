@@ -1,51 +1,28 @@
 <script>
-    function setCookie(name, value, daysToLive) {
-        var cookie = name + "=" + encodeURIComponent(value);
-        if(typeof daysToLive === "number") {
-            cookie += "; max-age=" + (daysToLive*24*60*60);
-            document.cookie = cookie;
-        }
-    }
-    
-    function getCookie(name) {
-        var cookieArr = document.cookie.split(";");
-        for(var i = 0; i < cookieArr.length; i++) {
-            var cookiePair = cookieArr[i].split("=");
-            if(name == cookiePair[0].trim()) {
-                return decodeURIComponent(cookiePair[1]);
-            }
-        }
-        return null;
-    }
-    
-
-	    
-	    
-	    document.cookie = "test1=Hello; SameSite=None; Secure";
+document.cookie = "test1=Hello; SameSite=None; Secure";
 document.cookie = "test2=World; SameSite=None; Secure";
 
-const cookieValue = getCookie("name");
+const cookieValue = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('test2='))
+  .split('=')[1];
 
 function showCookieValue() {
   const output = document.getElementById('cookie-value')
-  output.textContent =  cookieValue
+  output.textContent = '> ' + cookieValue
 }
 
 function clearOutputCookieValue() {
   const output = document.getElementById('cookie-value')
   output.textContent = ''
-} 
-	
- </script>
-<body> 
-  <button onclick="setCookie()">Show cookies</button>
-	<p> <b> Cookies: </b> </p>
-	<button onclick="showCookieValue()">Show cookie value</button>
+}
+<button onclick="showCookieValue()">Show cookie value</button>
 
 <button onclick="clearOutputCookieValue()">
   Clear
 </button>
-	<div>
+
+<div>
   <code id="cookie-value"></code>
 </div>
-</body>
+</script>
