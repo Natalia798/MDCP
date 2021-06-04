@@ -1,5 +1,4 @@
 <script>
-    function alertCookie() { alert(
     // A custom function to set cookies
     function setCookie(name, value, daysToLive) {
         // Encode value in order to escape semicolons, commas, and whitespace
@@ -57,8 +56,7 @@
 
 	// Uncomment the following line to delete this cookie
 	// setCookie("firstName", "", 0);
-                            ); }
     </script>
 <body> 
-  <button onclick="alertCookie()">Show cookies</button>
+  <button onclick="setCookie()">Show cookies</button>
 </body>
