@@ -18,6 +18,25 @@
         }
         return null;
     }
+   
+   // A custom function to check cookies
+     function checkCookie() {
+         // Get cookie using our custom function
+         var firstName = getCookie("firstName");
+    
+         if(firstName != null) {
+            showCookieValue();
+         } else {
+             firstName = prompt("Please enter your first name:");
+             if(firstName != "" && firstName != null) {
+// Set cookie using our custom function
+                 setCookie("firstName", firstName, 1);
+             }
+         }
+     }
+    
+    // Check the cookie on page load
+    window.onload = checkCookie;
   
 function showCookieValue() {
   var cookieValue = getCookie("cookieValue");
