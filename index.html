@@ -24,7 +24,7 @@
 	    document.cookie = "test1=Hello; SameSite=None; Secure";
 document.cookie = "test2=World; SameSite=None; Secure";
 
-const cookieValue = getCookie();
+const cookieValue = getCookie("name");
 
 function showCookieValue() {
   const output = document.getElementById('cookie-value')
@@ -38,9 +38,6 @@ function clearOutputCookieValue() {
 	
  </script>
 <body> 
-	<div>
-  <code id="cookie-value"></code>
-</div>
   <button onclick="setCookie()">Show cookies</button>
 	<p> <b> Cookies: </b> </p>
 	<button onclick="showCookieValue()">Show cookie value</button>
@@ -48,4 +45,7 @@ function clearOutputCookieValue() {
 <button onclick="clearOutputCookieValue()">
   Clear
 </button>
+	<div>
+  <code id="cookie-value"></code>
+</div>
 </body>
