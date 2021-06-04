@@ -10,11 +10,11 @@
                document.write ("Nume student" : cookievalue );
             }
          function setBrowser() {
-               if( document.myform2.customer.value == "" ) {
+               if( document.myform2.customer2.value == "" ) {
                   alert("Enter some value!");
                   return;
                }
-               cookievalue = escape(document.myform.customer.value) + ";";
+               cookievalue = escape(document.myform2.customer2.value) + ";";
                document.cookie = "name=" + cookievalue;
                document.write ("Browser" : cookievalue );
             }
@@ -28,7 +28,7 @@
          <input type = "button" value = "Set Name" onclick = "setName();"/>
       </form>  
            <form name = "myform2" action = "">
-         Enter browser: <input type = "text" name = "customer"/>
+         Enter browser: <input type = "text" name = "customer2"/>
          <input type = "button" value = "Set Browser" onclick = "setBrowser();"/>
       </form>  
    </body>
