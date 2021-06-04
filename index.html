@@ -1,18 +1,35 @@
 <script>
 document.cookie = "test1=Hello; SameSite=None; Secure";
 document.cookie = "test2=World; SameSite=None; Secure";
-
-const cookieValue = document.cookie
-  .split('; ')
-  .find(row => row.startsWith('test2='))
-  .split('=')[1];
-
+  
+   function setCookie(name, value, daysToLive) {
+        var cookie = name + "=" + encodeURIComponent(value);
+        if(typeof daysToLive === "number") {
+            cookie += "; max-age=" + (daysToLive*24*60*60);
+            document.cookie = cookie;
+        }
+    }
+  
+   function getCookie(name) {
+        // Split cookie string and get all individual name=value pairs in an array
+        var cookieArr = document.cookie.split(";");
+        for(var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+            if(name == cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        return null;
+    }
+  
 function showCookieValue() {
+  var cookieValue = getCookie("cookieValue");
   const output = document.getElementById('cookie-value')
   output.textContent = '> ' + cookieValue
 }
 
 function clearOutputCookieValue() {
+   var cookieValue = getCookie("cookieValue");
   const output = document.getElementById('cookie-value')
   output.textContent = ''
 }
