@@ -35,23 +35,23 @@
     }
     
     // A custom function to check cookies
-    function checkCookie() {
-        // Get cookie using our custom function
-        var firstName = getCookie("firstName");
+//     function checkCookie() {
+//         // Get cookie using our custom function
+//         var firstName = getCookie("firstName");
     
-        if(firstName != null) {
-            alert("Welcome again, " + firstName);
-        } else {
-            firstName = prompt("Please enter your first name:");
-            if(firstName != "" && firstName != null) {
-                // Set cookie using our custom function
-                setCookie("firstName", firstName, 1);
-            }
-        }
-    }
+//         if(firstName != null) {
+//             alert("Welcome again, " + firstName);
+//         } else {
+//             firstName = prompt("Please enter your first name:");
+//             if(firstName != "" && firstName != null) {
+//                 // Set cookie using our custom function
+//                 setCookie("firstName", firstName, 1);
+//             }
+//         }
+//     }
     
     // Check the cookie on page load
-    window.onload = checkCookie;
+    //window.onload = checkCookie;
 
 
 	// Uncomment the following line to delete this cookie
@@ -59,4 +59,6 @@
     </script>
 <body> 
   <button onclick="setCookie()">Show cookies</button>
+	<p> <b> Cookies: </b> </p>
+	<p> <i> Numele: </i> getCookie("firstName) </p>
 </body>
